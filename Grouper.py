@@ -1,13 +1,12 @@
-import itertools
 import random
 
 name_list = []
-for num in itertools.count():
-    decision = input('Enter a name or type "no" to stop:')
-    if decision == 'no':
-        break
-    else:
+while True:
+    decision = raw_input('Enter a name or type "no" to stop:')
+    if (decision != 'no'):
         name_list.append(decision)
+    else:
+        break
 
 print(name_list)
 groups_number = int(input('Pick number of groups:'))
