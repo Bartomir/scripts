@@ -2,11 +2,10 @@ import random
 
 name_list = []
 while True:
-    decision = raw_input('Enter a name or type "no" to stop:')
-    if (decision != 'no'):
-        name_list.append(decision)
-    else:
+    decision = raw_input('Enter a name or type "end" to finish:')
+    if decision == 'end':
         break
+    name_list.append(decision)
 
 print(name_list)
 groups_number = int(input('Pick number of groups:'))
