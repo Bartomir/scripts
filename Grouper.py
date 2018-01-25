@@ -21,4 +21,5 @@ while name_list:
         except IndexError:
             break
 
-print (all_groups)
+for key in sorted(all_groups.iterkeys()):
+    print "%s: %s" % (key, all_groups[key])
