@@ -1,34 +1,42 @@
-#print board
 board = []
 
 for x in range(0, 3):
-    board.append(["| |"] * 3)
+    board.append(["|_|"] * 3)
 
 def print_board(board):
     for row in board:
-        print(" ".join(row))
+        print("".join(row))
 
-for turn in range(4):
-    print "Turn", turn + 1
-    p1_row = int(raw_input("Row: ")) - 1
-    p1_col = int(raw_input("Col: ")) - 1
-    board[p1_row1][p1_col1] = "X"
-    p2_row = int(raw_input("Row: ")) - 1
-    p2_col = int(raw_input("Col: ")) - 1
-    board[p2_row1][p2_col1] = "O"
+def take_turn(player, symbol):
+    while True:
+        row = int(input("{}, pick row: ".format(player))) - 1
+        col = int(input("{}, pick col: ".format(player))) - 1
+        if (row in range(3) and
+            col in range(3) and
+            board[row][col] == "|_|"):
+            break
+        print("You cannot choose this field")
+    board[row][col] = symbol
 
+def game_ongoing():
+    if (["|X|", "|X|", "|X|"] not in board and
+        ["|O|", "|O|", "|O|"] not in board):
+        return True
+    print("Game Over! You've won!")
+    print_board(board)
 
-    if
-        print "Congratulations! You sank my battleship!"
-        break
+turn = 1
+while game_ongoing():
+    print("Turn", turn)
+    print_board(board)
+    if turn % 2:
+        player = "Player 1"
+        symbol = "|X|"
     else:
-        if guess_row not in range(5) or guess_col not in range(5):
-            print "Oops, that's not even in the ocean."
-        elif elif board[][] == "X" or "O" ::
-            print( "This field is already taken" )
-        else:
-            print "You missed my battleship!"
-            board[guess_row][guess_col] = "X"
-        if (turn == 3):
-            print "Game Over"
-        print_board(board)
+        player = "Player 2"
+        symbol = "|O|"
+    try:
+        take_turn(player, symbol)
+        turn += 1
+    except ValueError:
+        print("You must pick a number")
