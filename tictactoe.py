@@ -22,8 +22,8 @@ def game_ongoing():
     if (["|X|", "|X|", "|X|"] not in board and
         ["|O|", "|O|", "|O|"] not in board):
         return True
-    print("Game Over! You've won!")
     print_board(board)
+    print("Game Over! You've won!")
 
 turn = 1
 while game_ongoing():
@@ -38,5 +38,5 @@ while game_ongoing():
     try:
         take_turn(player, symbol)
         turn += 1
-    except ValueError:
+    except (ValueError, SyntaxError, NameError):
         print("You must pick a number")
